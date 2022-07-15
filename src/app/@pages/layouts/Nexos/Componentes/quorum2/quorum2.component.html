@@ -1,0 +1,36 @@
+<div class="container-fluid" style="height: 100%; background-color: #FFF;">
+  <div class="row align-items-center" style="height: 100%;">
+    <div class="col-12">
+      <div class="container">
+      <div class="row" *ngIf="show_confirm_button">
+        <div class="col-12">
+          <button (click)="CheckPresence()" class="button-orange" >
+            Confirmar Presencia
+          </button>
+        </div>
+      </div>
+        <div class="row">
+          <div class="col-12" style="text-align: center;">
+            <h3 style="font-weight: 600;">Asistencia</h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="caja-circulo">
+                <div class="circular-progress" id="circularprogress">
+                    <div class="value-container">
+                        0%
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12" style="text-align: center;">
+            <p class="text-units">{{unidades | number:'1.0'}} unidades asistentes</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

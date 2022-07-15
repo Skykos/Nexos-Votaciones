@@ -1,0 +1,23 @@
+<div class="container" style="min-height: 460px;">
+  <div class="row">
+    <div class="col-12" style="text-align: center;">
+      <h3 style="font-weight: 600;">Documentos</h3>
+    </div>
+  </div>
+  <div class="row">
+  <div class="scrollDocumentos">
+    <div class="col-12" style="text-align: center; width: 100%;" *ngFor="let item of listDocument; index as i">
+      <table class="buttonDocument mb-2" (click)="download(item.id, item.name)">
+        <tr>
+          <td class="iconDownloadContent">
+            <img src="./assets/img/download.png" style="height: 50px;" alt="pdf-icon">
+          </td>
+          <td>
+            <h5 class="card-title">{{item.name}}</h5>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  </div>
+</div>

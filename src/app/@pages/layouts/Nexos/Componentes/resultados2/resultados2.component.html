@@ -1,0 +1,115 @@
+<div class="container" style="min-height: 460px;">
+  <div class="row">
+    <div class="col-12" style="text-align: center; vertical-align: center;">
+      <button (click)="Irvotaciones()" type="button" class="button-orange">Volver</button>
+    </div>
+    <div class="col-12" style="text-align: center;">
+      <h4 style="font-weight: 600;">{{name_vote}}</h4>
+    </div>
+  </div>
+  <div class="scrollResultados2">
+    <div class="row" *ngIf="unidad==0">
+      <div class="col-12" *ngFor="let item of votes; index as i"
+        style="padding: 0; margin: 0; padding-left: 4%; padding-right: 4%;">
+        <h5>{{item['name']}}</h5>
+        <div class="progress" style="height: 40px; background-color: #444;" *ngIf="(item['total_coefficient'])>=30">
+          <p class="progress-bar" *ngIf="(item['total_coefficient'])==0"
+            style="font-size: 12px; vertical-align: center; height: 100%; color: #FFF; background-color: #444;">
+            <span *ngIf="unit_to_chart == '1'">{{item['total_coefficient'] | number:'1.0-3'}}<span
+                *ngIf="id_conjunto != 1401">%</span></span>
+            <span *ngIf="unit_to_chart == '2'">{{item['total_records'] | number:'1.0-3'}} unidades</span>
+            <span *ngIf="unit_to_chart == '3'">{{item['total_aporte'] | number:'1.0-3'}} aportes</span>
+          </p>
+          <div class="progress-bar" role="progressbar" style="background-color: #e56e22;"
+            [ngStyle]="{'width.%': item['total_coefficient']}" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+            <p *ngIf="unit_to_chart == '1'">{{item['total_coefficient'] | number:'1.0-3'}}<span
+                *ngIf="id_conjunto != 1401">%</span></p>
+            <p *ngIf="unit_to_chart == '2'">{{item['total_records'] | number:'1.0-3'}} unidades</p>
+            <p *ngIf="unit_to_chart == '3'">{{item['total_aporte'] | number:'1.0-3'}} aportes</p>
+          </div>
+        </div>
+        <div class="progress" style="height: 40px; background-color: #444;" *ngIf="(item['total_coefficient'])<30">
+          <div class="progress-bar" role="progressbar" style="background-color: #e56e22;"
+            [ngStyle]="{'width.%': item['total_coefficient']}" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+          </div>
+          <p class="progress-bar"
+            style="font-size: 12px; vertical-align: center; height: 100%; color: #FFF; background-color: #444;">
+            <span *ngIf="unit_to_chart == '1'">{{item['total_coefficient'] | number:'1.0-3'}}<span
+                *ngIf="id_conjunto != 1401">%</span></span>
+            <span *ngIf="unit_to_chart == '2'">{{item['total_records'] | number:'1.0-3'}} unidades</span>
+            <span *ngIf="unit_to_chart == '3'">{{item['total_aporte'] | number:'1.0-3'}} aportes</span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="row" *ngIf="unidad==0 && not_voted.length != 0">
+      <div class="col-12" style="padding: 0; margin: 0; padding-left: 4%; padding-right: 4%;">
+        <h5>No han votado</h5>
+        <div class="progress" style="height: 40px; background-color: #444;" *ngIf="(not_voted['total_coefficient'])>=30">
+          <p class="progress-bar" *ngIf="(not_voted['total_coefficient'])==0"
+            style="font-size: 12px; vertical-align: center; height: 100%; color: #FFF; background-color: #444;">
+            <span *ngIf="unit_to_chart == '1'">{{not_voted['total_coefficient'] | number:'1.0-3'}}<span
+                *ngIf="id_conjunto != 1401">%</span></span>
+            <span *ngIf="unit_to_chart == '2'">{{not_voted['total_records'] | number:'1.0-3'}} unidades</span>
+            <span *ngIf="unit_to_chart == '3'">{{not_voted['total_aporte'] | number:'1.0-3'}} aportes</span>
+          </p>
+          <div class="progress-bar" role="progressbar" style="background-color: #e56e22;"
+            [ngStyle]="{'width.%': not_voted['total_coefficient']}" aria-valuenow="25" aria-valuemin="0"
+            aria-valuemax="100">
+            <p *ngIf="unit_to_chart == '1'">{{not_voted['total_coefficient'] | number:'1.0-3'}}<span
+                *ngIf="id_conjunto != 1401">%</span></p>
+            <p *ngIf="unit_to_chart == '2'">{{not_voted['total_records'] | number:'1.0-3'}} unidades</p>
+            <p *ngIf="unit_to_chart == '3'">{{not_voted['total_aporte'] | number:'1.0-3'}} aportes</p>
+          </div>
+        </div>
+        <div class="progress" style="height: 40px; background-color: #444;" *ngIf="(not_voted['total_coefficient'])<30">
+          <div class="progress-bar" role="progressbar" style="background-color: #e56e22;"
+            [ngStyle]="{'width.%': not_voted['total_coefficient']}" aria-valuenow="25" aria-valuemin="0"
+            aria-valuemax="100"></div>
+          <p class="progress-bar"
+            style="font-size: 12px; vertical-align: center; height: 100%; color: #FFF; background-color: #444;">
+            <span *ngIf="unit_to_chart == '1'">{{not_voted['total_coefficient'] | number:'1.0-3'}}<span
+                *ngIf="id_conjunto != 1401">%</span></span>
+            <span *ngIf="unit_to_chart == '2'">{{not_voted['total_records'] | number:'1.0-3'}} unidades</span>
+            <span *ngIf="unit_to_chart == '3'">{{not_voted['total_aporte'] | number:'1.0-3'}} aportes</span>
+          </p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- <div class="row" *ngIf="(unidad==0 && absent.length != 0) && (unidad==0 && absent.length != undefined)"> -->
+      <div class="row" *ngIf="unidad==0 && absent['total_aporte']">
+      <div class="col-12" style="padding: 0; margin: 0; padding-left: 4%; padding-right: 4%;">
+        <h5>Ausentes</h5>
+        <div class="progress" style="height: 40px; background-color: #444;" *ngIf="(absent['total_coefficient'])>=30">
+          <p class="progress-bar" *ngIf="(absent['total_coefficient'])==0"
+            style="font-size: 12px; vertical-align: center; height: 100%; color: #333; background-color: rgba(224, 224, 244);">
+            <span *ngIf="unit_to_chart == '1'">{{absent['total_coefficient'] | number:'1.0-3'}}<span
+                *ngIf="id_conjunto != 1401">%</span></span>
+            <span *ngIf="unit_to_chart == '2'">{{absent['total_records'] | number:'1.0-3'}} unidades</span>
+            <span *ngIf="unit_to_chart == '3'">{{absent['total_aporte'] | number:'1.0-3'}} aportes</span>
+          </p>
+          <div class="progress-bar" role="progressbar" style="background-color: #e56e22;"
+            [ngStyle]="{'width.%': absent['total_coefficient']}" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+            <p *ngIf="unit_to_chart == '1'">{{absent['total_coefficient'] | number:'1.0-3'}}<span
+                *ngIf="id_conjunto != 1401">%</span></p>
+            <p *ngIf="unit_to_chart == '2'">{{absent['total_records'] | number:'1.0-3'}} unidades</p>
+            <p *ngIf="unit_to_chart == '3'">{{absent['total_aporte'] | number:'1.0-3'}} aportes</p>
+          </div>
+        </div>
+        <div class="progress" style="height: 40px; background-color: #444;" *ngIf="(absent['total_coefficient'])<30">
+          <div class="progress-bar" role="progressbar" style="background-color: #e56e22;"
+            [ngStyle]="{'width.%': absent['total_coefficient']}" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+          </div>
+          <p class="progress-bar"
+            style="font-size: 12px; vertical-align: center; height: 100%; color: #FFF; background-color: #444;">
+            <span *ngIf="unit_to_chart == '1'">{{absent['total_coefficient'] | number:'1.0-3'}}<span
+                *ngIf="id_conjunto != 1401">%</span></span>
+            <span *ngIf="unit_to_chart == '2'">{{absent['total_records'] | number:'1.0-3'}} unidades</span>
+            <span *ngIf="unit_to_chart == '3'">{{absent['total_aporte'] | number:'1.0-3'}} aportes</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

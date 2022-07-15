@@ -1,0 +1,149 @@
+<!-- WRAP LAYOUT IF BOXED -->
+<div class="">
+
+	<div class="container" *ngIf="_boxed; else basicLayoutBlock">
+		<ng-container *ngTemplateOutlet="contentTpl"></ng-container>
+	</div>
+	<ng-template #basicLayoutBlock>
+		<ng-container *ngTemplateOutlet="contentTpl"></ng-container>
+	</ng-template>
+
+	<!-- YOUR LAYOUT CONTENT GOES INSIDE HERE -->
+	<ng-template #contentTpl>
+		<!-- PAGE SIDEBAR -->
+		<pg-sidebar>
+			<!-- <ng-template #sideBarOverlay>
+				<div class="row">
+					<div class="col-xs-6 no-padding">
+						<a href="javascript:void(0)" class="p-l-40"><img src="assets/img/demo/social_app.svg" alt="socail">
+						</a>
+					</div>
+					<div class="col-xs-6 no-padding">
+						<a href="javascript:void(0)" class="p-l-10"><img src="assets/img/demo/email_app.svg" alt="socail">
+						</a>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-6 m-t-20 no-padding">
+						<a href="javascript:void(0)" class="p-l-40"><img src="assets/img/demo/calendar_app.svg"
+								alt="socail">
+						</a>
+					</div>
+					<div class="col-xs-6 m-t-20 no-padding">
+						<a href="javascript:void(0)" class="p-l-10"><img src="assets/img/demo/add_more.svg" alt="socail">
+						</a>
+					</div>
+				</div>
+			</ng-template> -->
+			<!-- <ng-template #sideBarHeader>
+				<img src="./assets/img/logo.png" alt="logo" class="brand" pgRetina src1x="./assets/img/logo.png"
+					src2x="./assets/img/logo.png" width="78" height="22">
+				<div class="sidebar-header-controls">
+					<button type="button" class="btn btn-xs sidebar-slide-toggle btn-link m-l-20 hidden-lg-down"
+						[class.active]="_menuDrawerOpen" (click)="toggleMenuDrawer()"><i class="fa fa-angle-down fs-16"></i>
+					</button>
+					<button type="button"
+						class="btn btn-link d-lg-inline-block d-xlg-inline-block d-lg-inline-block d-sm-none d-none"
+						data-toggle-pin="sidebar" (click)="toggleMenuPin()"><i class="fa fs-12"></i>
+					</button>
+				</div>
+			</ng-template> -->
+			<ng-template #menuItems>
+				<pg-menu-items [Items]="menuLinks">
+				</pg-menu-items>
+			</ng-template>
+		</pg-sidebar>
+		<!-- PAGE CONTAINER -->
+		<page-container style="max-width: 100%; height: 100%; padding: 0;">
+			<div class="container" style="margin: 0; padding: 0; background-color: #FFF; max-width: 100%; height: 8%;">
+				<div class="row" style="margin: 0;">
+					<div class="col-12 col-md-2 my-auto" style="margin: 0; padding: 0;">
+						<div class="container" style="min-width: 100%; margin: 0;">
+							<div class="row">
+								<div class="col-6 col-md-6 my-auto" style="text-align: left; margin: 0; padding: 0;">
+									<button href="javascript:void(0);" (click)="toggleMobileSidebar(); buttonHide()" id="icon-button-menu">
+										<div class="container">
+											<div class="row">
+												<div class="col-12">
+													<img src="./assets/img/menu2.png" style="height: 28px; display: inline-block;" id="icon-sidebar">
+												</div>
+												<!-- <div class="col-8" style="vertical-align: center;">
+													<span
+														style="display: inline-block; font-weight: 600; font-size: 1.3rem; color: #000;">Menu</span>
+												</div> -->
+											</div>
+										</div>
+									</button>
+								</div>
+								<div class="col-6 col-md-6" style="text-align: right;">
+									<img src="./assets/img/logo_redondo.svg" src1x="./assets/img/logo_redondo.svg"
+										src2x="./assets/img/logo_redondo.svg" alt="logo" pgRetina style="height: 50px;">
+								</div>
+								<!-- <div class="col-5 d-lg-none my-auto">
+								</div> -->
+							</div>
+						</div>
+					</div>
+					<!-- <div class="col-12 col-lg-1 my-auto" style="text-align: center; margin: 0; padding: 0;">
+						<button type="button" class="btn btn-secondary" style="background-color: #e56e22; color: #FFF; margin: 0;" *ngIf="quorumAllTime == true">
+							<span class="pull-left" style="font-size: 0.75rem;">Quorum {{quorum | number:'1.0-4'}}% (Acc: {{aportes | number:'1.0'}})</span>
+						</button>
+					</div> -->
+					<div class="col-12 col-md-6 my-auto" style="text-align: center;">
+						<h5 class="d-none d-md-block" style="color: #262626;">{{nombre_reunion}}</h5>
+						<h5 class="d-block d-md-none" style="color: #262626; margin: 0;">{{nombre_reunion}}</h5>
+					</div>
+					<div class="col-12 col-md-4 my-auto" style="text-align: center;  margin: 0; padding: 0;" *ngIf="building_id != 154">
+						<h5 class="d-none d-md-block" style="color: #262626;">PBX: (601) 4325200 opción 2</h5>
+						<h5 class="d-block d-md-none" style="color: #262626; margin: 0;">PBX: (601) 4325200 opción 2</h5>
+						<!-- <button type="button" class="btn btn-secondary"(click)="showUnits()" style=" margin: 0; background-color: #555; color: #FFF; border: none;">
+							<span class="pull-left">Unidades representadas({{units_cant}})</span>
+						</button> -->
+					</div>
+					<div class="col-12 col-md-4 my-auto" style="text-align: center;  margin: 0; padding: 0;" *ngIf="building_id == 154">
+						<img src="./assets/img/logo_1.jpg" alt="logo_corbanca" height="43px">
+					</div>
+					<!-- <div class="col-12 my-auto d-block d-sm-block d-lg-none"
+						style="text-align: center;  margin: 0; padding: 0;">
+					</div> -->
+				</div>
+			</div>
+			<div class="container-fluid"
+				style="margin: 0; padding: 0; background-color: #FFF; max-width: 100%; height: 92%;">
+				<div class="container-fluid" style="margin: 0; padding: 0; width: 100%; height: 100%;">
+					<div class="row" style="margin: 0; padding: 0; height: 100%;">
+						<div class="col-12" style="height: 100%;">
+							<div class="content {{_contentClass}}" style="margin: 0; padding: 0;">
+								<router-outlet>
+								</router-outlet>
+							</div>
+						</div>
+					</div>
+					<!-- <div class="row d-block d-md-none d-lg-block" style="margin: 0; padding: 0; height: 10%;">
+						<div class="col-12">
+							<div class="container-fluid  footer" style="padding: 0; margin: 0; background-color: #CCC;">
+								<div class="copyright sm-text-center" style="padding: 0; margin: 0;">
+									<p class="small no-margin pull-left"
+										style="color: black; background-color: #FFF; padding-left: 1%;">
+										Copyright &copy; 2021 Grupo Empresarial Nexos Todos los derechos reservados.
+										<span class="sm-block">
+											<a class="m-l-10" target="_blank"
+												href="https://votacioneselectronicas.com.co/Politicas_y_Privacidad.html"
+												style="text-decoration: none; color: #e56e22;">
+												Politicas de privacidad
+											</a>
+										</span>
+									</p>
+									<p class="small no-margin pull-right sm-pull-reset"
+										style="color: black; background-color: #FFF; padding-right: 1%;">
+										Contacto: PBX: (601)432 5200 opción 2.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div> -->
+				</div>
+			</div>
+		</page-container>
+	</ng-template>
+</div>

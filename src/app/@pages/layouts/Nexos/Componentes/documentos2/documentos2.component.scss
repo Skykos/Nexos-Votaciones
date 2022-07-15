@@ -1,0 +1,21 @@
+.buttonDocument {
+    border: 1px solid #262626;
+    border-radius: 2px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.buttonDocument:hover .iconDownloadContent{
+    opacity: 0.9;
+}
+
+.iconDownloadContent {
+    background-color: #262626;
+    width: 30%;
+}
+
+.scrollDocumentos {
+    width: 100%;
+    height: 450px;
+    overflow-y:scroll;
+}

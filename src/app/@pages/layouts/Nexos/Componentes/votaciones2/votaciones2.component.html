@@ -1,0 +1,23 @@
+<div class="container-fluid" style="padding: 0; margin: 0; width: 100%;">
+  <div class="row">
+    <div class="col-12">
+      <div class="container" style="width: 100%;">
+        <div class="row">
+          <div class="col-12" style="text-align: center;">
+            <h4>Seleccione la votación para ver los resultados</h4>
+            <div class="scrollVotaciones2">
+              <button *ngFor="let item3 of votes; let i3 = index" (click)="goVote(item3.id, item3.status_id)"
+                type="button" class="btn btn-secondary"
+                [ngStyle]="{'background-color':item3.status_id === '1' ? '#e56e22' : '#666' }"
+                style="width: 100%; color: #FFF; vertical-align: center; margin-bottom: 10px;">
+                <p>
+                  {{item3.name}}
+                </p>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

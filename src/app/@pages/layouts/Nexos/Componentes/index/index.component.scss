@@ -1,0 +1,51 @@
+#backgroundimage
+{
+   height: auto;
+   left: 0;
+   margin: 0;
+   min-height: 100%;
+   min-width: 674px;
+   padding: 0;
+   position: fixed;
+   top: 0;
+   width: 100%;
+   z-index: -1;
+}
+
+@media (max-width: 768px) {
+   .title-text {
+      font-family:Arial, Helvetica, sans-serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: #555;
+   }
+   
+   .text-content {
+      font-family:Arial, Helvetica, sans-serif;
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: #555;
+      text-transform: uppercase;
+      width: 80%;
+      line-height : 45px;
+   }
+}
+
+@media (min-width: 768px) {
+   .title-text {
+      font-family:Arial, Helvetica, sans-serif;
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: #555;
+   }
+   
+   .text-content {
+      font-family:Arial, Helvetica, sans-serif;
+      font-size: 2.1rem;
+      font-weight: 500;
+      color: #555;
+      text-transform: uppercase;
+      width: 80%;
+      line-height : 45px;
+   }
+}

@@ -1,0 +1,46 @@
+<div class="container-fluid container-chat">
+  <div class="row" style="height: 80%;" *ngIf="(residential_id != '2606') || ( residential_id == '2606' && is_speaker == 1)">
+    <div class="col-12" style="padding: 0; padding-top: 10px; height: 100%;">
+      <div class="ex3" id="style-1">
+        <ul class="ul" style="width: 100%;">
+          <li class="li" *ngFor="let item of messages">
+            <img src="./assets/img/user.png" style="height: 15px;">&nbsp;
+            <label
+              style="font-weight: 600; font-size: 0.7rem; padding: 0; margin: 0; word-wrap: break-word; color: #777;">
+              <span *ngIf="item['customer_id'] != null && item['customer_id'] !== ''; else support">
+                {{item['sector_name']}} {{item['sector_number']}}
+                {{item['name']}} {{item['number']}} {{item['nameRegister']}}
+              </span>
+              <ng-template #support>
+                <span>
+                  Soporte técnico
+                </span>
+              </ng-template>
+            </label>
+            <span style="width: 200px; padding: 0; margin: 0; word-wrap: break-word;">
+              {{item['message']}}
+            </span>
+            <br>
+            <p style="font-size: 0.5rem; text-align: right; padding: 0; margin: 0; word-wrap: break-word;"
+              *ngIf="SistemaOperativo != 'Macintosh'" class="date_container">
+              {{item['created_at']}}
+              <!-- {{ item['created_at'] | date:'hh:mm' }} -->
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-12 col-lg-9" style="padding-right: 10px; margin: 0;">
+        <input type="text" id="focus" autocomplete="off" formControlName="message" class="text"
+          placeholder="Escriba su comentario..." style="cursor: pointer;" required pattern="[A-Z]{3}[0-9]{4}"
+          maxlength="200" style="border: 1px solid #e56e22;">
+      </div>
+      <div class="col-12 col-lg-3" style="padding-left: 10px; margin: 0;" style="cursor: pointer;">
+        <button class="button" type="submit">Enviar</button>
+      </div>
+    </div>
+  </form>
+</div>

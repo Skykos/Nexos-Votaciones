@@ -1,0 +1,89 @@
+<!-- BEGIN SIDEBAR MENU TOP TRAY CONTENT-->
+<!-- <div class="sidebar-overlay-slide from-top" [class.show]="drawer">
+  <ng-template [ngTemplateOutlet]="sideBarOverlay"></ng-template>
+</div> -->
+<!-- END SIDEBAR MENU TOP TRAY CONTENT-->
+<!-- BEGIN SIDEBAR MENU HEADER-->
+<div class="sidebar-header">
+  <a href="javascript:void(0);" (click)="toggleMobileSidebar(); buttonHide()">
+    <div class="container">
+      <div class="row">
+        <div class="col-4">
+          <img src="./assets/img/menu3.png" style="height: 28px;">
+        </div>
+        <div class="col-8">
+          <span style="display: inline-block; font-weight: 600; font-size: 1.2rem; color: #ccc;">Menú</span>
+        </div>
+      </div>
+    </div>
+  </a>
+  <!-- <label>Menu votacion</label> -->
+  <ng-template [ngTemplateOutlet]="sideBarHeader"> </ng-template>
+</div>
+<!-- END SIDEBAR MENU HEADER-->
+<!-- START SIDEBAR MENU -->
+<div class="sidebar-menu">
+  <ng-template [ngTemplateOutlet]="menuItems"></ng-template>
+  <ul class="menu-items">
+    <li class="m-t-30 " (click)="navigate('/home/quorum2')">
+      <a class="nav-link" class="detailed">
+        <span class="title">Quorum</span>
+        <span class="details">Asistencia</span>
+      </a>
+      <span class="bg-nexos icon-thumbnail"><i class="fa fa-users"></i></span>
+    </li>
+    <li class="m-t-30 " (click)="navigate('/home/participantes')">
+      <a class="nav-link" class="detailed">
+        <span class="title">Participantes</span>
+        <span class="details">Lista de participantes</span>
+      </a>
+      <span class="bg-nexos icon-thumbnail"><i class="fa fa-users"></i></span>
+    </li>
+    <li class="m-t-30 " (click)="navigate('/home/votacion2')">
+      <a class="nav-link" class="detailed">
+        <span class="title">Votación</span>
+        <span class="details">Realizar o ver votaciones</span>
+      </a>
+      <span class="bg-nexos icon-thumbnail"><i class="fa fa-signal"></i></span>
+    </li>
+    <li class="m-t-30 " (click)="navigate('/home/documentos2')">
+      <a class="nav-link" class="detailed">
+        <span class="title">Documentos</span>
+        <span class="details">Ver documentación</span>
+      </a>
+      <span class="bg-nexos icon-thumbnail"><i class="fa fa-folder"></i></span>
+    </li>
+    <li class="m-t-30 " (click)="navigate('/home/chat')">
+      <a class="nav-link" class="detailed" *ngIf="(residential_id != '2606') || ( residential_id == '2606' && is_speaker == 1) else comentarioDiv">
+        <span class="title">Chat</span>
+        <span class="details">Ver chat</span>
+      </a>
+      <ng-template #comentarioDiv>
+        <a class="nav-link" class="detailed">
+          <span class="title">Comentarios</span>
+          <span class="details">Enviar comentarios</span>
+        </a>
+      </ng-template>
+      <span class="bg-nexos icon-thumbnail"><i class="fa fa-comments"></i></span>
+    </li>
+    <li class="m-t-30 " (click)="navigate('/home/ayuda')">
+      <a class="nav-link" class="detailed">
+        <span class="title">Ayuda</span>
+        <span class="details">Ventana de ayuda</span>
+      </a>
+      <span class="bg-nexos icon-thumbnail"><i class="fa fa-question-circle"></i></span>
+    </li>
+    <li class="m-t-30" (click)="logOut()">
+      <a class="nav-link" class="detailed">
+        <span class="title">Salir</span>
+      </a>
+      <span class="bg-nexos icon-thumbnail"><i class="fa fa-power-off"></i></span>
+    </li>
+  </ul>
+  <!-- <swal #deleteSwal title="Esta seguro que desea cerrar sesion?" type="question" [showCancelButton]="true" [cancelButtonText]="cancelText"
+    [focusCancel]="true" [cancelButtonColor]="cancelButtonColor" (confirm)="singOut()">
+  </swal> -->
+  <!-- BEGIN SIDEBAR MENU ITEMS-->
+  <div class="clearfix"></div>
+  <!-- END SIDEBAR MENU -->
+</div>

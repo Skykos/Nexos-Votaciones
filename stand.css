@@ -1,0 +1,127 @@
+/*Fixed css*/
+.avatar-img{
+    max-width: 100%;
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+}
+.file i {
+    cursor: pointer
+}
+
+.file input[type='file'] {
+    height: 190px;
+    width: 190px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer
+}
+
+.file:hover {
+    cursor: pointer;
+    background-position: 0 -100%;
+    color: #2590EB;
+    border: 1px solid
+}
+
+.avatar input[type="file"]{
+    display: none;
+}
+.avatar-select{
+    background: #4caf50;
+    color: white;
+    border-radius: 50%;
+    padding: 0.8em;
+    font-size: 1.2em;
+    cursor: pointer;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    box-shadow: 2px 2px 20px 0px rgba(0,0,0,0.1);
+    transition: .3s all ease;
+}
+
+.avatar .img-content{
+    border-radius: 50%;
+    width: 190px;
+    height: 190px;
+    border: 1.5px solid rgba(0,0,0,0.1);
+    margin: 0 auto;
+    transition: .3s all ease;
+    position: relative;
+}
+
+.avatar .img-content:hover{
+    transform: scale(1.1,1.1);
+    box-shadow: 2px 2px 20px 0px rgba(0,0,0,0.2)
+}
+
+
+/*Editor*/
+.note-editor.note-frame{
+    border: 1px solid #eae9e9;
+}
+
+/*Input disable*/
+tr th:last-child{
+    text-align: center;
+    width: 1px;
+}
+
+
+/*Icon builders table*/
+.build_i i{
+    font-size: 17px;
+
+}
+
+/*IInput search*/
+
+div.dataTables_wrapper div.dataTables_filter input {
+    border: none;
+    padding: 12px;
+}
+
+
+div.dataTables_wrapper div.dataTables_info{
+    display: inline-block;
+}
+.dataTables_paginate .next{
+    display: none;
+}
+.dataTables_paginate .previous{
+    display: none;
+}
+.dataTables_paginate .paginate_button{
+    color: #7a8994;
+    opacity: .5;
+    margin: 0 20px;
+    cursor: pointer;
+}
+.dataTables_paginate .paginate_button.current{
+    opacity: 1;
+}
+table.dataTable thead .sorting_asc:after {
+    content: "" !important;
+}
+table.dataTable thead .sorting_desc:after {
+    content: "" !important;
+}
+
+table.dataTable thead .sorting:after{
+    content: "" !important;
+}
+
+/*swal*/
+.swal-button{
+    background-color: #007be8;
+}
+
+/*place*/
+.inputSelect::-webkit-input-placeholder{
+    color: #48B0F7
+
+
+}

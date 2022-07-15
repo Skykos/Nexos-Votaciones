@@ -1,0 +1,50 @@
+<div class="container-fluid main-container">
+  <div class="row">
+    <div class="col-12" style="text-align: center; vertical-align: center; margin: 0;">
+      <button (click)="Irvotaciones()" type="button" class="button-orange">Votaciones
+        anteriores
+      </button>
+    </div>
+    <div class="col-12 col-lg-12" style="text-align: center;">
+      <h5 style="font-weight: 600; margin: 0;">{{vote_name}}</h5>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="container" style="width: 100%;">
+        <div class="row">
+          <div class="col-12 col-lg-12" *ngIf="success==true" style="text-align: center;">
+            <h5 style="margin: 0;" *ngIf="cantidad_votos == 1; else  elsetitle">Seleccione su respuesta</h5>
+            <ng-template #elsetitle>
+              <h5 style="margin: 0;">Seleccione sus {{cantidad_votos}} respuestas</h5>
+            </ng-template>
+            <div class="scrollVotaciones">
+              <div *ngIf="cantidad_votos==1; else elseBlock">
+                <div class="inputGroup" *ngFor="let item of vote_resp">
+                  <input id="{{item['id']}}" name="radio" type="radio" [(ngModel)]="voting_option" [value]="item['id']" />
+                  <label for="{{item['id']}}" style="padding-right: 15%;">{{item['name']}}</label>
+                </div>
+              </div>
+              <ng-template #elseBlock>
+                <div class="form-group">
+                  <div class="inputGroup" *ngFor="let option of vote_resp">
+                    <input type="checkbox" name="options" value="{{option['id']}}" id="{{option['id']}}" (change)="selectedOptions(option['id'])"
+                      [(ngModel)]="option.checked" />
+                    <label for="{{option['id']}}">{{option.name}}</label>
+                  </div>
+                </div>
+              </ng-template>
+            </div>
+            <input id="list" style="visibility: hidden;">
+            <button (click)="guardarVoto()" type="button" class="button-orange" id="button-vote">
+              Enviar Voto
+            </button>
+          </div>
+          <a style="visibility: hidden;" href="#point" id="boton">Click aqui</a>
+          <div style="visibility: hidden;" id="point"></div>
+          <button style="visibility: hidden;" (click)="reloadVote()" id="votacionReload"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
