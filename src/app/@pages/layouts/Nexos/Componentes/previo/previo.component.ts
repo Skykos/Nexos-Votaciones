@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ConfigurationRestService } from '../../service/configuration.rest.service';
 import { HttpClient } from '@angular/common/http';
 import { SocketService } from '../../service/socket.service';
+import { Globals } from '../../interface/globals.model';
 
 @Component({
   selector: 'app-previo',
@@ -20,7 +21,8 @@ export class PrevioComponent implements OnInit {
     private config: ConfigurationRestService,
     private route: ActivatedRoute,
     private httpClient: HttpClient,
-    private socketService: SocketService
+    private socketService: SocketService,
+    private global: Globals
   ) {
     this.id_building = this.route.snapshot.paramMap.get("id");
     this.httpClient.get(this.config.endpoint4 + 'ApiMeetings/getMeetingDetailsByResidential/' + this.id_building)
@@ -38,6 +40,7 @@ export class PrevioComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.global.reload_for_recaptcha = true;
     if (this.id_building == '1613') {
       location.href = 'https://www.alquilersonidoasambleas.com/votacion/#/login/685';
     }

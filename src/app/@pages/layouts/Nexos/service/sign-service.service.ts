@@ -44,7 +44,7 @@ export class SignServiceService {
               if (Swal) {
                 Swal.fire({
                   title: 'Alerta',
-                  text: response2['message'] + 'DS',
+                  text: response2['message'],
                   type: 'warning',
                   confirmButtonColor: "#e56e22",
                   confirmButtonText: 'Aceptar'

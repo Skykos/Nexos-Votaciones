@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Globals } from '../../interface/globals.model';
 
 @Component({
   selector: 'app-index',
@@ -7,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IndexComponent implements OnInit {
 
-  constructor() {
-
+  constructor(
+    private global: Globals
+  ) {
+    this.global.reload_for_recaptcha = true;
   }
 
   ngOnInit() {

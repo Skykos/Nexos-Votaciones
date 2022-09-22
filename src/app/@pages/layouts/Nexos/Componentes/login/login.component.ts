@@ -62,6 +62,9 @@ export class LoginComponent implements OnInit {
     this.storage.remove('token');
     this.id_building = this.route.snapshot.paramMap.get("id");
     this.global.id_conjunto = this.id_building;
+    if (this.global.reload_for_recaptcha) {
+      location.reload();
+    }
     this.httpClient.get(this.config.endpoint4 + 'ApiMeetings/getMeetingDetailsByResidential/' + this.id_building)
       .subscribe(resp => {
         if (resp['success'] == false) {
@@ -252,17 +255,17 @@ export class LoginComponent implements OnInit {
                 timer: 10000
               })
             } else {
-              swal.fire({
-                title: 'Verificando la información...',
-                html: '<img src="./assets/img/giphy.gif" width="120px"><br><img src="./assets/img/logo.png" width="80px">',
-                timer: 6000,
-                showConfirmButton: false
-              })
-              const formData = new FormData();
-              formData.append('key', this.config.key);
-              formData.append('document_number', this.userAuthentication.user + '');
-              formData.append('password', this.userAuthentication['password']);
-              this.signService.signCustomer(formData, this.userAuthentication.name, this.userAuthentication.document_number, this.id_building);
+            swal.fire({
+              title: 'Verificando la información...',
+              html: '<img src="./assets/img/giphy.gif" width="120px"><br><img src="./assets/img/logo.png" width="80px">',
+              timer: 6000,
+              showConfirmButton: false
+            })
+            const formData = new FormData();
+            formData.append('key', this.config.key);
+            formData.append('document_number', this.userAuthentication.user + '');
+            formData.append('password', this.userAuthentication['password']);
+            this.signService.signCustomer(formData, this.userAuthentication.name, this.userAuthentication.document_number, this.id_building);
             }
           }
         }

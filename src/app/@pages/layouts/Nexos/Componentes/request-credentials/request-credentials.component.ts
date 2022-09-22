@@ -26,6 +26,7 @@ export class RequestCredentialsComponent implements OnInit {
     this.residential_id = this.route.snapshot.paramMap.get("residential_id");
     this.meeting_id = this.route.snapshot.paramMap.get("meeting_id");
     this.global.messageLogin = false;
+    this.global.reload_for_recaptcha = true;
   }
 
   ngOnInit() {

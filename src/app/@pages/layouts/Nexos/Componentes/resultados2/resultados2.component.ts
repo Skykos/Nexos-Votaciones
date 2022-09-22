@@ -71,7 +71,7 @@ export class Resultados2Component implements OnInit {
     this.meeting_id = residentialStorage['meeting_id'];
     this.httpClient.get(this.config.endpoint4 + 'ApiVoting/getVotingOptionResults/' + this.keysession + '/' + this.id_vote)
       .subscribe(resp => {
-      
+
         if (resp['content']['vote']['status_id'] == '1' && this.show_results == '1') {
           swal.fire(
             'Mensaje',
@@ -115,6 +115,9 @@ export class Resultados2Component implements OnInit {
   ngOnInit() {
     this.guardarVoto.closeModalVote.subscribe((response) => {
     });
+    this.socketService.listen('meeting_quorum_' + this.meeting_id).subscribe((response) => {
+      this.getResults();
+    });
   }
 
   ngOnDestroy() {
@@ -123,6 +126,24 @@ export class Resultados2Component implements OnInit {
 
   Irvotaciones() {
     this.router.navigate(['home/votaciones2']);
+  }
+
+  getResults() {
+    this.httpClient.get(this.config.endpoint4 + 'ApiVoting/getVotingOptionResults/' + this.keysession + '/' + this.id_vote)
+      .subscribe(resp => {
+        this.total_votes = 0;
+        this.name_vote = resp['content']['vote']['name'];
+        this.votes = resp['content']['vote']['options'];
+        this.absent = resp['content']['absent'];
+        this.not_voted = resp['content']['not_voted'];
+        this.status_vote = resp['content']['vote']['status_id'];
+        this.total_votes = this.total_votes + this.not_voted['total_aporte'];
+        this.unit_to_chart = resp['content']['vote']['unit_to_chart'];
+        for (let index = 0; index < this.votes.length; index++) {
+          const element = this.votes[index];
+          this.total_votes = this.total_votes + this.votes[index]['total_aporte'];
+        }
+      });
   }
 
 }

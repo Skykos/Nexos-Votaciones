@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <title>Grupo Empresarial Nexos</title>
@@ -11,6 +10,11 @@
   <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
   <meta http-equiv="pragma" content="no-cache" />
   <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+  <meta http-equiv="Content-Security-Policy"
+    content="img-src 'self' https://img.nopcommerce.com; object-src 'none';
+    style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://fonts.googleapis.com/;
+    script-src 'self' 'unsafe-inline' 'unsafe-eval'
+    https://meet.jit.si/ https://player.twitch.tv https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://www.google.com https://www.gstatic.com/; base-uri 'self'; form-action 'self';">
   <link rel="icon" type="image/x-icon" href="./assets/img/logo.png">
   <script src="https://player.twitch.tv/js/embed/v1.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -18,6 +22,8 @@
     integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body style="background-color:white;">
   <script type="text/javascript">
     window.paceOptions = {
       document: true,
@@ -28,14 +34,7 @@
         trackMethods: ['POST', 'GET']
       }
     };
-  </script>
-</head>
-
-<body style="background-color:white;">
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script>
     navigator.mediaDevices.getUserMedia({ audio: true })
-      // navigator.mediaDevices.getUserMedia({ audio: true, video: true })
       .catch(function (err) {
         setTimeout(function () {
           Swal.fire({
@@ -50,11 +49,8 @@
           })
         }, 20000);
       });
-  </script>
-  <script>
     var coll = document.getElementsByClassName("collapsible");
     var i;
-
     for (i = 0; i < coll.length; i++) {
       coll[i].addEventListener("click", function () {
         this.classList.toggle("active");
@@ -70,22 +66,6 @@
   <script src='https://meet.jit.si/external_api.js'></script>
   <script type="text/javascript">
     function jitsi() {
-      // var height = '100%';
-      // if (window.screen.width >= 992) {
-      //   height = '85%';
-      // }
-      // if(window.screen.width >= 768 && window.screen.width < 992) {
-      //   height = '80%';
-      // }
-      // if(window.screen.width >= 576 && window.screen.width < 768) {
-      //   height = '75%';
-      // }
-      // if(window.screen.width >= 379 && window.screen.width < 576) {
-      //   height = '70%';
-      // }
-      // if (window.screen.width < 379) {
-      //   height = '60%';
-      // }
       const domain = 'meet.jit.si';
       const options = {
         roomName: document.getElementById('meeting_number').value,
@@ -140,23 +120,17 @@
           displayName: document.getElementById('userName').value
         },
         defaultLanguage: "es",
-
       };
-
       const api = new JitsiMeetExternalAPI(domain, options);
-
       api.on('passwordRequired', function () {
         api.executeCommand('password', document.getElementById('password_meeting').value);
       });
-
       api.addEventListeners({
         'participantKickedOut': onParticipantKickedOut
       });
-
       api.addEventListeners({
         'micError': micError
       });
-
       function micError(object2) {
         if (object2.message == "Permission denied") {
           Swal.fire({
@@ -168,7 +142,6 @@
           })
         }
       }
-
       function onParticipantKickedOut(object) {
         setTimeout(() => {
           if (api._myUserID == object.kicked.id) {
@@ -177,17 +150,11 @@
         }, 3000);
       }
     }
-
     function colgar() {
       api.executeCommand('hangup');
     }
-
     function copy() {
-      /* Get the text field */
       var copyText = window.location;
-
-      /* Copy the text inside the text field */
-      // document.execCommand("copy");
       navigator.clipboard.writeText(copyText)
     }
   </script>
@@ -195,8 +162,6 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
     crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 <link class="main-stylesheet" href="assets/pages/css/pages.css" rel="stylesheet" type="text/css" />
-
 </html>

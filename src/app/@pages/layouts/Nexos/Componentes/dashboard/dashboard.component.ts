@@ -84,6 +84,7 @@ export class DashboardComponent implements OnInit {
       location.reload();
     }
 
+    this.global.reload_for_recaptcha = true;
     const userStorage = this.storage.get('usuario');
     const residentialStorage = this.storage.get('residential');
     this.isObserver = this.storage.get('observer');
@@ -283,17 +284,20 @@ export class DashboardComponent implements OnInit {
     });
     this.socketService.listen('property_request_updated_' + this.keysession).subscribe((response) => {
       var icon = 'info'
+      var text = ''
       if (response['status'] == '1') {
         icon = 'success';
+        text = response['message'] + ' revise su representación, gracias';
       } else {
         icon = 'info';
+        text = response['message'];
       }
       swal.fire({
         icon: icon,
-        html: response['message'],
+        html: text,
         showCancelButton: false,
         confirmButtonColor: '#e56e22',
-        timer: 10000
+        timer: 20000
       });
       this.httpClient.get(this.config.endpoint4 + 'ApiUsers/getCustomerPropertiesByMeeting/' + this.keysession + '/' + this.meeting_id)
         .subscribe(response => {
@@ -573,7 +577,7 @@ export class DashboardComponent implements OnInit {
 
   Delete(unitId, index) {
     swal.fire({
-      title: '¿Está seguro de que desea renunciar a la representación de esta unidad',
+      title: '¿Está seguro de que desea renunciar a la representación de esta unidad?',
       showDenyButton: true,
       confirmButtonText: 'Sí, eliminar unidad',
       confirmButtonColor: '#e56e22 ',
@@ -640,6 +644,8 @@ export class DashboardComponent implements OnInit {
             });
           }
         }
+        this.sectorIndex = '';
+        this.unitIndex = '';
       });
   }
 

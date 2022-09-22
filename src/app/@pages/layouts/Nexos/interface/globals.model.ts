@@ -6,4 +6,5 @@ export class Globals {
     id_conjunto: string;
     chat_count: number;
     messageLogin = true;
+    reload_for_recaptcha = false;
 }

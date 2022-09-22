@@ -332,11 +332,11 @@
   </div>
 </div>
 <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
-  <div id="toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+  <div id="toast" class="toast toast-message" role="alert" aria-live="polite" aria-atomic="true" data-bs-delay="10000">
     <div class="toast-header">
       <img src="./assets/img/logo.png" class="rounded me-2" alt="..." style="width: 25px;">
       <strong class="me-auto">Mensaje</strong>
-      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      <!-- <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button> -->
     </div>
     <div class="toast-body">
       Se ha bajado la mano
@@ -344,11 +344,13 @@
   </div>
 </div>
 <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
-  <div id="toast-2" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+  <div id="toast-2" class="toast toast-message" role="alert" aria-live="polite" aria-atomic="true" data-bs-delay="10000">
     <div class="toast-header">
-      <img src="./assets/img/logo.png" class="rounded me-2" alt="..." style="width: 25px;">
-      <strong class="me-auto">Mensaje</strong>
-      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      <div style="position: relative; text-align: center; display: flex; justify-content: space-around; width: 100%;">
+        <img src="./assets/img/logo.png" class="rounded me-2" alt="..." style="width: 25px;">
+        <strong class="me-auto">Mensaje</strong>
+        <!-- <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button> -->
+      </div>
     </div>
     <div class="toast-body">
       Usted ha enviado una solicitud de palabra, en un momento recibirá un mensaje con una respuesta.

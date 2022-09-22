@@ -5,8 +5,6 @@ import { Globals } from '../../interface/globals.model';
 import { Router } from '@angular/router';
 import { SESSION_STORAGE, WebStorageService } from 'angular-webstorage-service';
 import { SocketService } from '../../service/socket.service';
-
-
 declare var swal: any;
 
 @Component({
