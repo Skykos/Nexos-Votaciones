@@ -10,8 +10,13 @@ export class ConfigurationRestService {
   // endpoint2 = 'https://votacioneselectronicas.com.co/app-management/';
 
   //Pruebas
-  // endpoint = 'https://grupogift.com/app-preregistro/';
-  // endpoint2 = 'https://grupogift.com/app-management/';
+  endpoint = 'https://apiasambleas.grupogift.com/app-preregistro/';
+  endpoint2 = 'https://apiasambleas.grupogift.com/app-management/';
+  endpoint3 = 'https://apiasambleas.grupogift.com/gestor-v2/';
+  endpoint4 = 'https://apiasambleas.grupogift.com/preregistro-v2/';
+  endpoint5 = 'https://apiasambleas.grupogift.com/preregistro-test/';
+  // endpoint4 = 'https://apiasambleas.grupogift.com/preregistro-test/';
+  endpointSocket = 'wss://socket.tetranscribo.com:3000';
 
   //Tercer server
   // endpoint = 'https://alquilersonidoasambleas.com/app-preregistro/';
@@ -21,11 +26,11 @@ export class ConfigurationRestService {
   // endpointSocket = 'wss://socket.tetranscribo.com:3000';
 
   //cuarto server
-  endpoint = 'https://apiasambleas.grupoempresarialnexos.com/app-preregistro/';
-  endpoint2 = 'https://apiasambleas.grupoempresarialnexos.com/app-management/';
-  endpoint3 = 'https://apiasambleas.grupoempresarialnexos.com/gestor-v2/';
-  endpoint4 = 'https://apiasambleas.grupoempresarialnexos.com/preregistro-v2/';
-  endpointSocket = 'wss://socket.grupoempresarialnexos.com:3000';
+  // endpoint = 'https://apiasambleas.grupoempresarialnexos.com/app-preregistro/';
+  // endpoint2 = 'https://apiasambleas.grupoempresarialnexos.com/app-management/';
+  // endpoint3 = 'https://apiasambleas.grupoempresarialnexos.com/gestor-v2/';
+  // endpoint4 = 'https://apiasambleas.grupoempresarialnexos.com/preregistro-v2/';
+  // endpointSocket = 'wss://socket.grupoempresarialnexos.com:3000';
 
   //Key
   key = 'GiUBniR9UtmfKDaeOc9tXKt16lk=';

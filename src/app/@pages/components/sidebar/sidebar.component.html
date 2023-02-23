@@ -53,7 +53,21 @@
       </a>
       <span class="bg-nexos icon-thumbnail"><i class="fa fa-folder"></i></span>
     </li>
-    <li class="m-t-30 " (click)="navigate('/home/chat')">
+    <li class="m-t-30 " (click)="navigate('/home/poderes')">
+      <a class="nav-link" class="detailed">
+        <span class="title">Poderes</span>
+        <span class="details">Delegar poderes</span>
+      </a>
+      <span class="bg-nexos icon-thumbnail"><i class="fa fa-folder"></i></span>
+    </li>
+    <li class="m-t-30 " (click)="navigate('/home/onlyvote')">
+      <a class="nav-link" class="detailed">
+        <span class="title">Solo Voto</span>
+        <span class="details">Solo Solin Solo</span>
+      </a>
+      <span class="bg-nexos icon-thumbnail"><i class="fa fa-folder"></i></span>
+    </li>
+    <!-- <li class="m-t-30 " (click)="navigate('/home/chat')">
       <a class="nav-link" class="detailed" *ngIf="(residential_id != '2606') || ( residential_id == '2606' && is_speaker == 1) else comentarioDiv">
         <span class="title">Chat</span>
         <span class="details">Ver chat</span>
@@ -65,7 +79,7 @@
         </a>
       </ng-template>
       <span class="bg-nexos icon-thumbnail"><i class="fa fa-comments"></i></span>
-    </li>
+    </li> -->
     <li class="m-t-30 " (click)="navigate('/home/ayuda')">
       <a class="nav-link" class="detailed">
         <span class="title">Ayuda</span>

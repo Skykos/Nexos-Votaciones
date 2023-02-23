@@ -27,11 +27,14 @@
                 <a class="nav-link" id="4" (click)="navigate('home/documentos2')">Documentos</a>
               </li>
               <li class="nav-item">
+                <a class="nav-link" id="5" (click)="navigate('home/poderes')">Poderes</a>
+              </li>
+              <!-- <li class="nav-item">
                 <a class="nav-link" id="5" (click)="navigate('home/chat')" *ngIf="residential_id != '2606' || ( residential_id == '2606' && isSpeaker == 1) else comentarioA">Chat</a>
                 <ng-template #comentarioA>
                   <a class="nav-link" id="5" (click)="navigate('home/chat')">Comentarios</a>
                 </ng-template>
-              </li>
+              </li> -->
               <li class="nav-item">
                 <a class="nav-link" id="6" (click)="navigate('home/ayuda')">Ayuda</a>
               </li>
@@ -113,7 +116,7 @@
           <div class="col-12">
             <div class="container-fluid without-margins-2">
               <div class="row">
-                <div class="col-12 col-md-8 without-margins-4">
+                <div class="col-12  without-margins-4">
                   <button (click)="refresh2()" type="button" class="button-refresh"
                     *ngIf="raisehand_status_button==0 && (isSpeaker == 0 || !isSpeaker )">
                     <p>
@@ -129,7 +132,7 @@
                     oprima este botón
                   </button>
                 </div>
-                <div class="col-12 col-md-4 without-margins-4">
+                <!-- <div class="col-12 col-md-4 without-margins-4">
                   <button class="button-hand" (click)="raiseHand(0)"
                     *ngIf="raisehand_status_button==0 && (isSpeaker == 0 || !isSpeaker ) && accepted == 0">
                     <p class="text-button-hand">
@@ -150,7 +153,7 @@
                       Volver
                     </p>
                   </button>
-                </div>
+                </div> -->
               </div>
             </div>
           </div>

@@ -69,9 +69,11 @@ export class Resultados2Component implements OnInit {
     this.residential_id = residentialStorage['residential_id'];
     this.keysession = this.storage.get('token2');
     this.meeting_id = residentialStorage['meeting_id'];
+
     this.httpClient.get(this.config.endpoint4 + 'ApiVoting/getVotingOptionResults/' + this.keysession + '/' + this.id_vote)
       .subscribe(resp => {
-
+        console.log('El primero')
+        console.log(resp)
         if (resp['content']['vote']['status_id'] == '1' && this.show_results == '1') {
           swal.fire(
             'Mensaje',
@@ -94,6 +96,8 @@ export class Resultados2Component implements OnInit {
           }
           if (this.status_vote == '1') {
             this.socketService.listen('vote_stored_' + this.meeting_id).subscribe((response) => {
+              console.log('El segundo')
+              console.log(response)
               this.total_votes = 0;
               this.name_vote = response['vote']['name'];
               this.votes = response['vote']['options'];
@@ -109,6 +113,7 @@ export class Resultados2Component implements OnInit {
             });
           }
         }
+        console.log(this.total_votes)
       });
   }
 

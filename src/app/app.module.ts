@@ -8,6 +8,7 @@ import { HttpModule} from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
+import { FilterPipe } from '../app/@pages/layouts/Nexos/Componentes/Servicios/pipelines/filter.pipe'
 
 //Routing
 import { AppRoutes } from './app.routing';
@@ -101,17 +102,20 @@ import { Documentos2Component } from './@pages/layouts/Nexos/Componentes/documen
 import { Votacion2Component } from './@pages/layouts/Nexos/Componentes/votacion2/votacion2.component';
 import { Votaciones2Component } from './@pages/layouts/Nexos/Componentes/votaciones2/votaciones2.component';
 import { Resultados2Component } from './@pages/layouts/Nexos/Componentes/resultados2/resultados2.component';
-import { ChatComponent } from './@pages/layouts/Nexos/Componentes/chat/chat.component';
+//import { ChatComponent } from './@pages/layouts/Nexos/Componentes/chat/chat.component';
 import { PrevioComponent } from './@pages/layouts/Nexos/Componentes/previo/previo.component';
 import { IndexComponent } from './@pages/layouts/Nexos/Componentes/index/index.component';
 import { FinalizoComponent } from './@pages/layouts/Nexos/Componentes/finalizo/finalizo.component';
 import { UserHelpComponent } from './@pages/layouts/Nexos/Componentes/user-help/user-help.component';
+
 
 //Material of angular
 import {MatExpansionModule} from '@angular/material/expansion';
 import { MenuParticipantsComponent } from './@pages/layouts/Nexos/Componentes/menu-participants/menu-participants.component';
 import { VotacionComponent } from './@pages/layouts/Nexos/Componentes/votacion/votacion.component';
 import { RequestCredentialsComponent } from './@pages/layouts/Nexos/Componentes/request-credentials/request-credentials.component';
+import { OnlyVoteComponent } from './@pages/layouts/Nexos/Componentes/only-vote/only-vote.component';
+
 
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -151,14 +155,16 @@ export class AppHammerConfig extends HammerGestureConfig  {
     Votacion2Component,
     Votaciones2Component,
     Resultados2Component,
-    ChatComponent,
+    //ChatComponent,
     PrevioComponent,
     IndexComponent,
     FinalizoComponent,
     UserHelpComponent,
     MenuParticipantsComponent,
     VotacionComponent,
-    RequestCredentialsComponent
+    RequestCredentialsComponent,
+    OnlyVoteComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
